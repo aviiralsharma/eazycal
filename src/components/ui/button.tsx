@@ -34,9 +34,23 @@ const buttonVariants = cva(
   }
 )
 
-interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {}
+type ButtonProps = React.ComponentPropsWithoutRef<'button'> & VariantProps<typeof buttonVariants>
+
+// Utility to omit known conflicting props
+const omitMotionConflicts = (props: Record<string, any>) => {
+  const {
+    onAnimationStart,
+    onDrag,
+    onDragEnd,
+    onDragStart,
+    onDragTransitionEnd,
+    onPointerDown,
+    onPointerMove,
+    onPointerUp,
+    ...rest
+  } = props
+  return rest
+}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, fullWidth, ...props }, ref) => {
@@ -53,7 +67,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         onClick={handleClick}
-        {...(props as any)}
+        {...omitMotionConflicts(props)}
       />
     )
   }
