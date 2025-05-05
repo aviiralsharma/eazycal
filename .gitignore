@@ -1,0 +1,5 @@
+/keys/google-stt.json
+node_modules/
+.next/
+.env
+.DS_Store
