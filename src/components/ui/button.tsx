@@ -53,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         onClick={handleClick}
-        {...props}
+        {...(props as any)}
       />
     )
   }
