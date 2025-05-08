@@ -34,8 +34,22 @@ const buttonVariants = cva(
   }
 )
 
-// Use 'any' for props to ensure Vercel build passes
-const Button = React.forwardRef<HTMLButtonElement, any>(
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
+
+function filterMotionConflicts(props: Record<string, any>) {
+  // List of known conflicting props with Framer Motion
+  const {
+    onAnimationStart,
+    onDrag,
+    onDragEnd,
+    onDragStart,
+    onDragTransitionEnd,
+    ...rest
+  } = props
+  return rest
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, fullWidth, ...props }, ref) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (navigator.vibrate) {
@@ -44,14 +58,13 @@ const Button = React.forwardRef<HTMLButtonElement, any>(
       props.onClick?.(e)
     }
 
-    // @ts-expect-error: Suppress MotionProps/HTMLButtonElement type conflict for Vercel build
     return (
       <motion.button
         whileTap={{ scale: 0.98 }}
         ref={ref}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         onClick={handleClick}
-        {...props}
+        {...filterMotionConflicts(props)}
       />
     )
   }
