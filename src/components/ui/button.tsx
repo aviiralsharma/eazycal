@@ -66,7 +66,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={handleClick}
         {...filterMotionConflicts(props)}
       />
-    )
+    ) as unknown as React.ReactElement
   }
 )
 
