@@ -1,7 +1,9 @@
 'use client'
 
+import { motion, type MotionProps } from 'framer-motion'
+
+
 import React from 'react'
-import { motion } from 'framer-motion'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
@@ -34,7 +36,10 @@ const buttonVariants = cva(
   }
 )
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
+import { motion, type MotionProps } from 'framer-motion' // if not already imported
+
+type ButtonProps = MotionProps & React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
+
 
 function filterMotionConflicts(props: Record<string, any>) {
   // List of known conflicting props with Framer Motion
