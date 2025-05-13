@@ -1,9 +1,7 @@
 'use client'
 
-import { motion, type MotionProps } from 'framer-motion'
-
-
 import React from 'react'
+import { motion, type MotionProps } from 'framer-motion'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
@@ -36,13 +34,11 @@ const buttonVariants = cva(
   }
 )
 
-import { motion, type MotionProps } from 'framer-motion' // if not already imported
-
-type ButtonProps = MotionProps & React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants>
-
+type ButtonProps = MotionProps &
+  React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants>
 
 function filterMotionConflicts(props: Record<string, any>) {
-  // List of known conflicting props with Framer Motion
   const {
     onAnimationStart,
     onDrag,
@@ -55,7 +51,7 @@ function filterMotionConflicts(props: Record<string, any>) {
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, fullWidth, ...props }, ref) => {
+  ({ className, variant = 'default', size = 'default', fullWidth = false, ...props }, ref) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (navigator.vibrate) {
         navigator.vibrate(30)
@@ -77,4 +73,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = 'Button'
 
-export { Button, buttonVariants } 
+export { Button, buttonVariants }
