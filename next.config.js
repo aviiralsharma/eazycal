@@ -10,9 +10,7 @@ const withPWA = require('next-pwa')({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    outputFileTracing: false, // 🔧 disable the problematic tracing step
-  },
+  outputFileTracing: false, // ✅ this must be at root in Next.js 14
 }
 
 module.exports = withPWA(nextConfig)
