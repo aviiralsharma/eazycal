@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion, type MotionProps } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
@@ -34,24 +34,12 @@ const buttonVariants = cva(
   }
 )
 
-type ButtonProps = MotionProps &
-  React.ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof buttonVariants>
-
-function filterMotionConflicts(props: Record<string, any>) {
-  const {
-    onAnimationStart,
-    onDrag,
-    onDragEnd,
-    onDragStart,
-    onDragTransitionEnd,
-    ...rest
-  } = props
-  return rest
-}
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'default', size = 'default', fullWidth = false, ...props }, ref) => {
+  ({ className, variant, size, fullWidth, ...props }, ref) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (navigator.vibrate) {
         navigator.vibrate(30)
@@ -65,12 +53,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         onClick={handleClick}
-        {...filterMotionConflicts(props)}
+        {...props}
       />
-    ) as unknown as React.ReactElement
+    )
   }
 )
 
 Button.displayName = 'Button'
 
-export { Button, buttonVariants }
+export { Button, buttonVariants } 
