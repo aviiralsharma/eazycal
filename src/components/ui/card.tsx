@@ -26,7 +26,7 @@ export const SelectCard = React.forwardRef<HTMLDivElement, SelectCardProps>(
           selected ? 'border-indigo-600' : 'border-gray-200',
           className
         )}
-        {...props}
+        {...(props as any)}
       >
         {icon && <div className="mb-4 text-3xl">{icon}</div>}
         <h3 className="text-lg font-medium">{title}</h3>
@@ -40,4 +40,4 @@ export const SelectCard = React.forwardRef<HTMLDivElement, SelectCardProps>(
   }
 )
 
-SelectCard.displayName = 'SelectCard' 
+SelectCard.displayName = 'SelectCard'
