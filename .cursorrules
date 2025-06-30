@@ -1,0 +1,71 @@
+# EazyCal Project Context
+
+## Project Overview
+EazyCal is a mobile-first Progressive Web App (PWA) focused on making calorie tracking easy and intuitive. The app emphasizes simplicity, accessibility, and user-friendly design patterns.
+
+## UI/UX Ideology
+
+### Core Design Principles
+- **Mobile-First Approach**: Every feature must work perfectly on mobile devices
+- **Minimalist Design**: Clean, uncluttered interfaces that focus on core functionality
+- **Accessibility**: Ensure all users can interact with the app regardless of their abilities
+- **Quick Actions**: Minimize the number of taps/interactions needed for common tasks
+- **Visual Feedback**: Provide immediate visual feedback for all user actions
+- **Progressive Disclosure**: Show information progressively to avoid overwhelming users
+
+### Design System
+- **Color Palette**:
+  - **Primary Background**: #F9FAFB (Light gray-50 default)
+  - **Card Background**: #FFFFFF (White)
+  - **Primary Colors**:
+    - Green: #16A34A (green-600) for primary actions
+    - Blue: #2563EB (blue-600) for secondary actions
+    - Red: #DC2626 (red-600) for recording/stop actions
+- **Typography**:
+  - **Primary Fonts**: Satoshi, system fonts fallback
+  - Clean, readable typography with proper contrast
+- **Spacing**:
+  - **UI Component Standards**:
+    - **Buttons**: Clean, rounded-lg corners, solid colors (no glow effects)
+    - **Cards**: White background with subtle shadow-md
+    - **Forms**: Clear borders, proper focus states
+    - **Animations**: Simple CSS transitions (no complex motion libraries)
+- **Components**:
+  - **Design Philosophy**:
+    1. **Clean Light Theme**: Professional feel with white cards on light gray background
+    2. **Functional Focus**: Every screen should be clear, readable, and purpose-driven
+    3. **Anti-Clutter**: Minimize visual noise, prioritize content hierarchy
+    4. **Performance First**: Lightweight assets, fast loading, simple interactions
+
+## Development Guidelines
+
+### Code Style
+- Use TypeScript for type safety
+- Follow functional component patterns with hooks
+- Implement responsive design with TailwindCSS
+- Use simple CSS transitions for animations
+- Maintain PWA best practices
+
+### Architecture Patterns
+- Keep components small and focused
+- Use custom hooks for shared logic
+- Implement proper error boundaries
+- Follow Next.js App Router conventions
+
+## Key Features to Maintain
+- Voice-based food logging
+- Photo-based meal tracking
+- Health insights and progress tracking
+- PWA functionality (offline support, installable)
+- Daily reminders
+
+## When providing assistance:
+1. Always consider mobile-first design
+2. Suggest solutions that align with the clean, light UI approach
+3. Ensure accessibility standards are met
+4. Prioritize user experience over technical complexity
+5. Reference the established design patterns and components
+6. Consider PWA implications for any new features
+7. Avoid dark themes and glow effects - use clean, professional styling
+
+[Add your whitepaper content here or reference to it]

@@ -1,0 +1,9 @@
+{
+  "cursor.aiFeatures.enableForEnvFiles": true,
+  "files.exclude": {
+    ".env.local": false
+  },
+  "search.exclude": {
+    ".env.local": false
+  }
+} 

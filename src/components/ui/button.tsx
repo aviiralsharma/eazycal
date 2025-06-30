@@ -1,24 +1,23 @@
 'use client'
 
 import React from 'react'
-import { motion } from 'framer-motion'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-xl text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  'inline-flex items-center justify-center rounded-full text-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
   {
     variants: {
       variant: {
-        default: 'bg-indigo-600 text-white hover:bg-indigo-700',
-        secondary: 'bg-indigo-100 text-indigo-900 hover:bg-indigo-200',
-        outline: 'border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50',
-        ghost: 'text-indigo-600 hover:bg-indigo-50',
+        default: 'bg-black text-white hover:bg-gray-800',
+        secondary: 'bg-gray-600 text-white hover:bg-gray-700',
+        outline: 'border-2 border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full',
+        ghost: 'text-gray-600 hover:bg-gray-50',
       },
       size: {
-        default: 'h-14 px-6',
-        sm: 'h-10 px-4',
-        lg: 'h-16 px-8 text-lg',
+        default: 'py-4 px-4',
+        sm: 'py-2 px-3 text-sm',
+        lg: 'py-4 px-6 text-lg',
         icon: 'h-10 w-10',
       },
       fullWidth: {
@@ -48,12 +47,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     }
 
     return (
-      <motion.button
-        whileTap={{ scale: 0.98 }}
+      <button
         ref={ref}
         className={cn(buttonVariants({ variant, size, fullWidth, className }))}
         onClick={handleClick}
-        {...(props as any)}
+        {...props}
       />
     )
   }

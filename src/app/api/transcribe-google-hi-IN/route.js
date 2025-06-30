@@ -25,12 +25,12 @@ export async function POST(request) {
     }
     const client = new SpeechClient({ keyFilename: keyPath });
 
-    // Google STT config
+    // Google STT config for Hindi
     const audio = { content: audioBytes };
     const config = {
       encoding: 'WEBM_OPUS',
       sampleRateHertz: 48000,
-      languageCode: 'en-IN',
+      languageCode: 'hi-IN',
     };
     const requestObj = { audio, config };
 
