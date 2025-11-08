@@ -75,7 +75,7 @@ export default function TestEnglishStep3() {
       const formData = new FormData()
       formData.append('audio', audioBlob, 'recording.webm')
       
-      const response = await fetch('/api/transcribe-google-hi-IN', {
+      const response = await fetch('/api/transcribe-google-en-IN', {
         method: 'POST',
         body: formData,
       })
@@ -126,7 +126,7 @@ export default function TestEnglishStep3() {
             className="text-2xl font-bold text-gray-900 mb-3"
             style={{ fontFamily: 'Satoshi, -apple-system, BlinkMacSystemFont, sans-serif' }}
           >
-            🧪 Hindi Voice Test (3/3)
+             English Voice Test (3/3)
           </h1>
         </div>
 
@@ -146,7 +146,7 @@ export default function TestEnglishStep3() {
                   <span className="text-black text-xs font-bold">🌍</span>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed" style={{ fontFamily: 'Satoshi, -apple-system, BlinkMacSystemFont, sans-serif' }}>
-                  Talk in Hindi — as selected earlier.
+                  Talk in English — as selected earlier.
                 </p>
               </div>
               <div className="flex items-start">
@@ -186,7 +186,7 @@ export default function TestEnglishStep3() {
             {isRecording 
               ? `Recording... ${Math.ceil((100 - recordingProgress) * 15 / 100)}s remaining` 
               : isProcessing 
-                ? 'Processing with Google Speech-to-Text (Hindi)...'
+                ? 'Processing with Google Speech-to-Text (English)...'
                 : 'Tap the microphone to start recording (max 15 seconds)'
             }
           </p>
@@ -196,7 +196,7 @@ export default function TestEnglishStep3() {
               className="text-gray-400 text-xs"
               style={{ fontFamily: 'Satoshi, -apple-system, BlinkMacSystemFont, sans-serif' }}
             >
-              Powered by Google Speech-to-Text API (hi-IN)
+              Powered by Google Speech-to-Text API (en-IN)
             </p>
           )}
         </div>

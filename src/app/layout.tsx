@@ -36,8 +36,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} h-full overflow-hidden bg-gray-50`}>
-        <main className="h-full w-full max-w-md mx-auto bg-white shadow-sm">
+      <body className={`${inter.className} min-h-full bg-gradient-to-br from-[#2a1810] via-[#3d2415] to-[#1f1408] relative`}>
+        <div className="fixed inset-0 bg-gradient-to-tr from-[#fbe0e0]/5 via-transparent to-[#fbfbe0]/5 pointer-events-none"></div>
+        <main className="min-h-screen w-full max-w-md mx-auto bg-white shadow-lg relative z-10 scroll-container">
           {children}
         </main>
       </body>
